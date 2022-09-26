@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  /* background: url("back.jpg"); */
+  animation: backgoundImage 20s infinite alternate;
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+
+}
+
+@keyframes backgoundImage {
+  0% {
+    background: url("./images/back.jpg");
+  }
+
+  25% {
+    background: url("./images/pexels-jess-loiterton-6390419.jpg");
+  }
+
+  50% {
+    background: url("./images/pexels-kaique-rocha-775203.jpg");
+  }
+
+  75% {
+    background: url("./images/pexels-tima-miroshnichenko-5407296.jpg");
+  }
+
+  100% {
+    background: url("./images/FB_IMG_1603025397476.jpg");
+  }
+}
+
+.container {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.container2 {
+  width: 500px;
+  margin: 20px auto;
+}
+
+.form {
+  background-color: rgb(224, 219, 219);
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.form1 {
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 18px;
+  display: flex;
+
+}
+
+.form1 input {
+  text-align: center;
+}
+
+.form2 {
+  background-color: #eee;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  flex: 1;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.add {
+  border: none;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.addRandom {
+  border: none;
+  background-color: #f44336;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.names {
+  background-color: #eee;
+  margin-top: 20px;
+  border-radius: 6px;
+  padding: 20px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.names .name {
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.3s;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.names .name:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.names .name:hover {
+  background-color: #f7f7f7;
+}
+
+.names .name.done {
+  opacity: 0.5;
+}
+
+.names .name span {
+  font-weight: bold;
+  font-size: 10px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.names .name11 span {
+  font-weight: bold;
+  font-size: 10px;
+  background-color: red;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
