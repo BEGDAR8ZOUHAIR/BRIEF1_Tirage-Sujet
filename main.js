@@ -178,7 +178,7 @@ randomName.addEventListener("click", () =>
       
     } else
     {
-        var date = document.getElementById("date").value;
+        const date = document.getElementById("date").value;
         console.log("date ", date);
         sujetId++
         // CHECK IF THE ARRAY IS EMPTY
