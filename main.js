@@ -2,17 +2,21 @@ let input = document.querySelector(".input");
 let submit = document.querySelector(".add");
 let nameDiv = document.querySelector(".names");
 let randoDiv = document.querySelector(".form1");
-
 let resultRandom = document.getElementById("resultRandom");
 
 
 // empty array to store names
 let arryOfNames = [];
 let arryResOfRandomNames = [];
-let sujetDeville = ['html', 'css', 'javascript', 'php', 'laravel', 'react', 'vuejs', 'node js', 'mongo db', 'expressjs', 'symphony', 'nuxtjs', 'nestjs', 'django', 'phyton', 'claud', 'firebase', 'bootstrap', 'tailwindcss', 'doker', 'redux',
-    'uml', 'testunitaire', 'internetof', 'ptotocols','serverside','clientside'];
-
-
+let sujetDeville = ['html', 'css', 'javascript', 'php', 'laravel', 'react', 'vuejs', 'node js', 'mongo db', 'expressjs', 'symphony', 'nuxtjs', 'nestjs', 'django', 'phyton',
+                    'claud', 'firebase', 'bootstrap', 'tailwindcss', 'doker', 'redux',
+                   'uml', 'testunitaire', 'internetof', 'ptotocols', 'serverside', 'clientside'];
+let dayOfHolidays = [
+            " 11 january",
+            " 03 may",
+            " 04 may",
+            " 18 november",
+            ];
 
 // check if this name in locale storege
 if (localStorage.getItem("names"))
@@ -128,7 +132,6 @@ function addResToLocalestorege(arryOfNames)
 
 // show result data
 
-
 function addResulElementsToPage(arryResOfRandomNames)
 {
     // empty Name Div
@@ -149,7 +152,6 @@ function addResulElementsToPage(arryResOfRandomNames)
     });
 }
 
-
 //  delete data from local storege
 function deletData(id)
 {
@@ -168,34 +170,41 @@ let ind = 1;
 //random 
 randomName.addEventListener("click", () =>
 {
+    //  check if date not selected
+    if (document.getElementById("date").value === "")
+    {
+        //  danger message
+        alert("Please Select a Date");
+      
+    } else
+    {
+        var date = document.getElementById("date").value;
+        console.log("date ", date);
+        sujetId++
+        // CHECK IF THE ARRAY IS EMPTY
 
-    var date = document.getElementById("date").value;
+        if (sujetId === sujetDeville.length) sujetId = 0;
 
-    console.log("date ", date);
+        let random = Math.floor(Math.random() * arryOfNames.length)
+        result.innerHTML = arryOfNames[random].title;
 
-    sujetId++
+        // add sujetDeville[sujetId] to arryOfNames[random]
+        arryOfNames[random].sujet = sujetDeville[sujetId]
+        arryOfNames[random].date = datee(date, ind++)
+        // add to result array
+        arryResOfRandomNames.push(arryOfNames[random])
+        // add to local storege
 
-   
-    let random = Math.floor(Math.random()*arryOfNames.length)
-    result.innerHTML = arryOfNames[random].title;
+        addResToLocalestorege(arryResOfRandomNames)
 
-    // add sujetDeville[sujetId] to arryOfNames[random]
-    arryOfNames[random].sujet = sujetDeville[sujetId]
-    arryOfNames[random].date = datee(date, ind++)
+        // splice name from arry
+        arryOfNames.splice(random, 1);
 
-    
-
-    arryResOfRandomNames.push(arryOfNames[random])
-
-    addResToLocalestorege(arryResOfRandomNames)
-
-    // splice name from arry
-    arryOfNames.splice(random, 1);
-
-    addLocalestorege(arryOfNames);
-    // addElementsToPage(arryOfNames);
-    getDataFromLocleStorege()
-    
+        addLocalestorege(arryOfNames);
+        // addElementsToPage(arryOfNames);
+        getDataFromLocleStorege()
+        
+    }
 
 })
 
@@ -210,15 +219,11 @@ remove_data.addEventListener("click", () =>
 })
 
 
-
-    
-
-
-
-
 // date 
 const datee = (date, days) =>
 {
+    //  skip days of dayOfHolidays array
+    
 
     var d = moment(new Date(date)).add(Math.floor(days / 5) * 7, 'd');
     var remaining = days % 5;
