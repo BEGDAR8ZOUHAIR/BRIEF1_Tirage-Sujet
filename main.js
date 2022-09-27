@@ -23,12 +23,10 @@ if (localStorage.getItem("names"))
 {
     arryOfNames = JSON.parse(localStorage.getItem("names"));
 }
-
 if (localStorage.getItem("result"))
 {
     arryResOfRandomNames = JSON.parse(localStorage.getItem("result"));
 }
-
 getDataFromLocleStorege();
 
 // Add a Name
@@ -40,7 +38,6 @@ submit.onclick = function ()
         input.value = ""; //clear input
     } else
     {
-        // aler bootstrap  alert
         alert("Please Enter a Name");
     }
 }
@@ -72,25 +69,22 @@ function addNameToArray(nametext)
 {
     // Name data
     const name = {
-        id: Date.now(),
+        id: Date.now(), //unique id
         title: nametext,
-
     };
     //push name to arry of names
     arryOfNames.push(name);
-    // add name to page
     // add name to local storage
     addLocalestorege(arryOfNames);
     // addElementsToPage(arryOfNames);
     getDataFromLocleStorege()
-
 }
 
 function addElementsToPage(arryOfNames)
 {
     // empty Name Div
     nameDiv.innerHTML = "";
-    // lop on arry of name
+    // loping on arry of Names
     arryOfNames.forEach((name) =>
     {
         nameDiv.innerHTML += `
@@ -152,7 +146,7 @@ function addResulElementsToPage(arryResOfRandomNames)
     });
 }
 
-//  delete data from local storege
+// delete data from local storege
 function deletData(id)
 {
     arryOfNames = arryOfNames.filter((name) =>
