@@ -12,21 +12,16 @@ let sujetDeville = ['html', 'css', 'javascript', 'php', 'laravel', 'react', 'vue
                     'claud', 'firebase', 'bootstrap', 'tailwindcss', 'doker', 'redux',
                    'uml', 'testunitaire', 'internetof', 'ptotocols', 'serverside', 'clientside'];
 let dayOfHolidays = [
-            " 11 january",
-            " 03 may",
-            " 04 may",
-            " 18 november",
+            "Jan 11",
+            "May 03",
+            "May 04",
+            "Nov 18",
             ];
-
 // check if this name in locale storege
-if (localStorage.getItem("names"))
-{
-    arryOfNames = JSON.parse(localStorage.getItem("names"));
-}
-if (localStorage.getItem("result"))
-{
-    arryResOfRandomNames = JSON.parse(localStorage.getItem("result"));
-}
+if (localStorage.getItem("names")) arryOfNames = JSON.parse(localStorage.getItem("names"));
+
+if (localStorage.getItem("result")) arryResOfRandomNames = JSON.parse(localStorage.getItem("result"));
+
 getDataFromLocleStorege();
 
 // Add a Name
@@ -173,7 +168,6 @@ randomName.addEventListener("click", () =>
     } else
     {
         const date = document.getElementById("date").value;
-        console.log("date ", date);
         sujetId++
         // CHECK IF THE ARRAY IS EMPTY
 
@@ -224,9 +218,9 @@ const datee = (date, days) =>
     while (remaining)
     {
         d.add(1, 'd');
-        if (d.day() !== 0 && d.day() !== 6)
-            remaining--;
+        if (d.day() !== 0 && d.day() !== 6) remaining--;
     }
+    // console.log(String(d._i + ind).split(' ').slice(1,3).join(' '));
     return d.format('YYYY-MM-DD');
 };
 
